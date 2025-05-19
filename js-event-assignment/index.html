@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title"><span class="title-highlight">Interactive</span> Web Experience</h1>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switcher">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-sun"></i>
+            </div>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="interactions">
+                <i class="fas fa-magic"></i> Interactions
+            </button>
+            <button class="tab-btn" data-tab="gallery">
+                <i class="fas fa-images"></i> Gallery
+            </button>
+            <button class="tab-btn" data-tab="forms">
+                <i class="fas fa-edit"></i> Forms
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <!-- Interactions Tab -->
+            <section id="interactions" class="tab-panel active">
+                <div class="interaction-grid">
+                    <div class="interaction-card click-card">
+                        <div class="card-icon">
+                            <i class="fas fa-hand-pointer"></i>
+                        </div>
+                        <h3>Click Counter</h3>
+                        <p id="click-display">0 clicks</p>
+                        <button id="click-btn" class="action-btn">Click Me!</button>
+                    </div>
+
+                    <div class="interaction-card hover-card">
+                        <div class="card-icon">
+                            <i class="fas fa-mouse-pointer"></i>
+                        </div>
+                        <h3>Hover Zone</h3>
+                        <div id="hover-box" class="hover-box">
+                            Hover over me!
+                        </div>
+                    </div>
+
+                    <div class="interaction-card keypress-card">
+                        <div class="card-icon">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <h3>Keypress Detector</h3>
+                        <div id="keypress-display">
+                            Press any key...
+                        </div>
+                        <div class="key-history" id="key-history"></div>
+                    </div>
+
+                    <div class="interaction-card secret-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3>Secret Zone</h3>
+                        <div id="secret-box" class="secret-box">
+                            <p>Double-click or long press me!</p>
+                            <div class="secret-message hidden" id="secret-message">
+                                <i class="fas fa-gem"></i>
+                                <p>You found the secret!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Tab -->
+            <section id="gallery" class="tab-panel">
+                <div class="gallery-container">
+                    <div class="slideshow-container">
+                        <div class="slide fade">
+                            <img src="https://source.unsplash.com/random/800x500?nature" alt="Nature">
+                            <div class="slide-caption">Beautiful Nature</div>
+                        </div>
+                        <div class="slide fade">
+                            <img src="https://source.unsplash.com/random/800x500?city" alt="City">
+                            <div class="slide-caption">Urban Landscape</div>
+                        </div>
+                        <div class="slide fade">
+                            <img src="https://source.unsplash.com/random/800x500?technology" alt="Technology">
+                            <div class="slide-caption">Modern Technology</div>
+                        </div>
+                        
+                        <a class="prev-slide">&#10094;</a>
+                        <a class="next-slide">&#10095;</a>
+                    </div>
+                    
+                    <div class="dots-container">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forms Tab -->
+            <section id="forms" class="tab-panel">
+                <form id="validation-form" class="validation-form">
+                    <div class="form-group">
+                        <label for="username">
+                            <i class="fas fa-user"></i> Username *
+                        </label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username">
+                        <div class="feedback" id="username-feedback"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i> Email *
+                        </label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email">
+                        <div class="feedback" id="email-feedback"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">
+                            <i class="fas fa-lock"></i> Password *
+                        </label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password">
+                        <div class="password-strength">
+                            <div class="strength-meter">
+                                <div class="strength-level" id="strength-level"></div>
+                            </div>
+                            <span class="strength-text" id="strength-text">Weak</span>
+                        </div>
+                        <div class="feedback" id="password-feedback"></div>
+                        <div class="password-rules">
+                            <p><i class="fas fa-check-circle rule-icon" id="length-rule"></i> Minimum 8 characters</p>
+                            <p><i class="fas fa-check-circle rule-icon" id="number-rule"></i> Contains a number</p>
+                            <p><i class="fas fa-check-circle rule-icon" id="special-rule"></i> Special character</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Submit
+                    </button>
+                </form>
+            </section>
+        </main>
+
+        <div class="notification" id="notification"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
